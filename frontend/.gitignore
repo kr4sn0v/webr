@@ -15,6 +15,7 @@ coverage
 *.local
 ._*
 .DS_Store
+.env
 
 # Editor directories and files
 .vscode/*
