@@ -20,7 +20,7 @@ export const useArticlesStore = defineStore('articles', () => {
     }
 
     try {
-      const response = await fetch(`/posts?search=${searchQuery.value}&limit=9&page=${currentPage.value}`)
+      const response = await fetch(`/api/posts?search=${searchQuery.value}&limit=9&page=${currentPage.value}`)
       if ( !response.ok) {
         throw new Error('Posts request error')
       }

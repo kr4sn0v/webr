@@ -12,14 +12,11 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      '/posts': {
+      '/api': {
         target: backendUrl,
-        changeOrigin: true
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
       },
-      '/register': {
-        target: backendUrl,
-        changeOrigin: true
-      }
     }
   },
   plugins: [
