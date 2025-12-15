@@ -34,7 +34,7 @@
           </a>
           &nbsp; &nbsp;
           <RouterLink
-            v-if="userStore.isAuthorized"
+            v-if="userStore.isAuthorized && userStore.isAdmin"
             to="/post"
             aria-label="Новая статья"
             class="hover:text-blue-500"
@@ -43,7 +43,7 @@
           </RouterLink>
           &nbsp; &nbsp;
           <RouterLink
-            v-if="userStore.isAuthorized"
+            v-if="userStore.isAuthorized && userStore.isAdmin"
             to="/users"
             aria-label="Пользователи"
             class="hover:text-blue-500"
