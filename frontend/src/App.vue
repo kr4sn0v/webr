@@ -9,6 +9,7 @@
     <footer class="bg-white">
       <LayoutFooter />
     </footer>
+    <ModalBase />
   </div>
 </template>
 
@@ -16,4 +17,5 @@
 import { RouterView } from 'vue-router'
 import LayoutHeader from './components/layout/LayoutHeader.vue'
 import LayoutFooter from './components/layout/LayoutFooter.vue'
+import ModalBase from './components/base/ModalBase.vue'
 </script>
