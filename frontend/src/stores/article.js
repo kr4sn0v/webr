@@ -74,6 +74,25 @@ export const useArticleStore = defineStore('article', () => {
   }
  }
 
+ const addArticle = async (newArticle) => {
+  try {
+    const response = await fetch('/api/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newArticle)
+    })
+
+    if (!response.ok) {
+      throw new Error(response)
+    }
+
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+ }
+
   const addComment = async (newComment) => {
   try {
     const response = await fetch(`/api/posts/${article.value.id}/comments`, {
@@ -118,7 +137,7 @@ export const useArticleStore = defineStore('article', () => {
   }
  }
 
- return {article, fetchArticle, toggleEditMode, isInEditMode, updateArticle, deleteArticle, addComment, deleteComment}
+ return {article, fetchArticle, toggleEditMode, isInEditMode, updateArticle, deleteArticle, addComment, deleteComment, addArticle}
 })
 
 if (import.meta.hot) {
