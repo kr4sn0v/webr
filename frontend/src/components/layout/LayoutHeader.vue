@@ -77,8 +77,8 @@ const router = useRouter()
 const hanleLogout = async () => {
   const response = await userStore.logout()
 
-  if (!response.error && route.meta.requiredAuth) {
-    router.push('/')
+  if (!response.error && route.meta.requireAdmin) {
+    router.push('/login')
   }
 }
 </script>

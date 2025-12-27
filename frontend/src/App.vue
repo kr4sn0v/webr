@@ -4,7 +4,8 @@
       <LayoutHeader />
     </header>
     <main class="mt-26 flex-1">
-      <RouterView />
+      <RouterView v-if="canAccess" />
+      <AccessDeniedView v-else />
     </main>
     <footer class="bg-white">
       <LayoutFooter />
@@ -18,4 +19,22 @@ import { RouterView } from 'vue-router'
 import LayoutHeader from './components/layout/LayoutHeader.vue'
 import LayoutFooter from './components/layout/LayoutFooter.vue'
 import ModalBase from './components/base/ModalBase.vue'
+import { useRoute } from 'vue-router'
+import { useUserStore } from './stores/user'
+import { computed } from 'vue'
+import AccessDeniedView from './views/AccessDeniedView.vue'
+
+const route = useRoute()
+const userStore = useUserStore()
+
+const canAccess = computed(() => {
+  if (route.meta.requireAdmin) {
+    if (userStore.isAdmin) {
+      return true
+    } else {
+      return false
+    }
+  }
+  return true
+})
 </script>
