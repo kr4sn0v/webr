@@ -30,8 +30,8 @@
     </div>
 
     <p class="mb-4">
-      <input
-        class="w-full rounded-md border border-gray-300 p-2"
+      <InputBase
+        name="imageUrl"
         type="text"
         v-model="editedArticle.imageUrl"
         placeholder="URL изображение"
@@ -39,20 +39,21 @@
     </p>
 
     <p class="mb-4">
-      <input
-        class="w-full rounded-md border border-gray-300 p-2"
+      <InputBase
+        name="title"
         type="text"
         v-model="editedArticle.title"
         placeholder="Заголовок статьи"
       />
     </p>
     <p class="mb-4">
-      <textarea
-        class="w-full rounded-md border border-gray-300 p-2"
+      <InputBase
+        as="textarea"
+        name="content"
         rows="15"
         v-model="editedArticle.content"
         placeholder="Содержание статьи"
-      ></textarea>
+      />
     </p>
   </form>
 </template>
@@ -64,6 +65,7 @@ import { faTrash, faFloppyDisk, faArrowRotateLeft } from '@fortawesome/free-soli
 import { useArticleStore } from '@/stores/article'
 import { useModalStore } from '@/stores/modal'
 import { useRouter } from 'vue-router'
+import InputBase from './base/InputBase.vue'
 
 const articleStore = useArticleStore()
 const modalStore = useModalStore()

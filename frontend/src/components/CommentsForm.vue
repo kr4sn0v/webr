@@ -1,11 +1,7 @@
 <template>
   <form class="ronded-ms mb-8 bg-white p-6 shadow-md" @submit.prevent="handleCommentSubmit">
-    <label for="newComment" class="text-gay-700 block">Ваш комментарий</label>
-    <textarea
-      v-model="newComment"
-      id="newComment"
-      class="mb-4 w-full rounded-md border border-gray-300 p-2"
-    ></textarea>
+    <LabelBase for="newComment">Ваш комментарий</LabelBase>
+    <InputBase name="newComment" as="textarea" v-model="newComment" id="newComment"></InputBase>
     <div class="flex justify-between">
       <p class="text-red-500" v-if="errorMessage">{{ errorMessage }}</p>
       <ButtonBase type="submit" class="ml-auto w-xs">Отправить</ButtonBase>
@@ -17,6 +13,8 @@
 import ButtonBase from '@/components/base/ButtonBase.vue'
 import { useArticleStore } from '@/stores/article'
 import { ref } from 'vue'
+import LabelBase from './base/LabelBase.vue'
+import InputBase from './base/InputBase.vue'
 
 const aricleStore = useArticleStore()
 

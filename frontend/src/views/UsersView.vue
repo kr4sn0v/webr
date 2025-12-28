@@ -28,11 +28,7 @@
             </td>
             <td class="p-2">
               <form class="relative flex gap-2" @submit.prevent="handleUserRole(user)">
-                <select
-                  :name="`user-${user.id}-role`"
-                  v-model="user.roleId"
-                  class="w-full rounded-md border border-gray-300 p-2"
-                >
+                <InputBase as="select" :name="`user-${user.id}-role`" v-model="user.roleId">
                   <option
                     v-for="role in rolesStore.roles"
                     :key="`${user.id}-${role.id}`"
@@ -40,7 +36,7 @@
                   >
                     {{ role.name }}
                   </option>
-                </select>
+                </InputBase>
                 <button
                   type="submit"
                   class="cursor-pointer rounded-md bg-blue-500 px-3 py-1 text-white hover:bg-blue-700"
@@ -81,6 +77,7 @@ import { faFloppyDisk, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import { useUsersStore } from '@/stores/users'
 import { useRolesStore } from '@/stores/roles'
+import InputBase from '@/components/base/InputBase.vue'
 
 import { formatDate } from '@/utils/dateFormatters'
 

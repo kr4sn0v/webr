@@ -1,5 +1,7 @@
 <template>
-  <Field class="w-full rounded-md border border-gray-300 bg-white p-2"></Field>
+  <Field class="w-full rounded-md border border-gray-300 bg-white p-2">
+    <slot></slot>
+  </Field>
 </template>
 
 <script setup>
