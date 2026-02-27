@@ -10,7 +10,7 @@ const backendUrl = 'http://localhost:3002'
 // https://vite.dev/config/
 export default defineConfig({
   server: {
-    port: 5173,
+    port: 3002,
     proxy: {
       '/api': {
         target: backendUrl,
